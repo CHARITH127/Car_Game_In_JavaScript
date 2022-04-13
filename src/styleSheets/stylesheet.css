@@ -25,7 +25,7 @@
    top: 0;
    left: 98px;
    text-align: center;
-   animation: move 4s linear infinite;
+   /*animation: move 2s linear infinite;*/
 }
 
 #blueCar>img{
@@ -47,9 +47,7 @@
    background: transparent;
    position: relative;
    top: 76vh;
-   left: 0;
-   right: 0;
-   margin: auto;
+   left: 234px;
    text-align: center;
 }
 
