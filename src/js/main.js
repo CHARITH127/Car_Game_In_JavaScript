@@ -20,12 +20,26 @@ blueCar.addEventListener("animationiteration", function () {
 
 /*moving racing car*/
 window.addEventListener("keydown", function (e) {
+
+    /*car shift to the right side*/
+    if (e.key == "ArrowRight") {
+        var raceCarLeft = parseInt(window.getComputedStyle(raceCar).getPropertyValue("left"));
+        console.log(raceCarLeft);
+        if (raceCarLeft < 150) {
+            raceCar.style.left = (raceCarLeft + 30) + "px"
+        }
+    }
+
+
+    /*car shift to the left side*/
     if (e.key == "ArrowLeft") {
         var raceCarLeft = parseInt(window.getComputedStyle(raceCar).getPropertyValue("left"));
+        console.log(raceCarLeft);
+        if ((raceCarLeft <= 0 || raceCarLeft > 0) & raceCarLeft > -150) {
+            raceCar.style.left = (raceCarLeft - 30) + "px"
+        }
     }
-    if (raceCarLeft < 260) {
-        raceCar.style.left = (raceCarLeft + 130) + "px"
-    }
+
 });
 
 /*
