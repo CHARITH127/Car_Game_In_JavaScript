@@ -1,58 +1,51 @@
 const blueCar = $("#blueCar").get(0);
 const raceCar = $("#raceCar").get(0);
 const game = $("#game").get(0);
-const count = 0;
+var result = $("#result").get(0);
+const score =  $("#score").get(0);
+var count = 0;
 
-
-/*moving the blue cars*/
+/*blue car move*/
 blueCar.addEventListener("animationiteration", function () {
-    var random = ((Math.floor(Math.random() * 5)) * 130)
-    /*to prevent blue car has touch the left barrier*/
-    if (random == 0) {
-        blueCar.style.left = 98 + "px";
-    }
-    /*to prevent blue car has touch the right barrier*/
-    else if (random == 520) {
-        blueCar.style.left = 320 + "px";
-    } else {
-        blueCar.style.left = random + "px";
-    }
-});
+    var random = ((Math.floor(Math.random() * 3)) * 130)
+    blueCar.style.left = random + "px";
+    count++
+    
+})
 
-/*moving racing car*/
+/*race car move*/
 window.addEventListener("keydown", function (e) {
-
-    /*car shift to the right side*/
+    /*car moving right side*/
     if (e.key == "ArrowRight") {
-        var raceCarPositionByLeft = parseInt(window.getComputedStyle(raceCar).getPropertyValue("left"));
-
-        if (raceCarPositionByLeft <= 414) {
-            raceCar.style.left = (raceCarPositionByLeft + 30) + "px"
-            console.log(raceCarPositionByLeft +"right key");
+        var raceCarLeft = parseInt(window.getComputedStyle(raceCar).getPropertyValue("left"))
+        if (raceCarLeft < 260) {
+            raceCar.style.left = (raceCarLeft + 130) + "px"
         }
-    }
 
+    };
 
-    /*car shift to the left side*/
+    /*car moving left side*/
     if (e.key == "ArrowLeft") {
-         raceCarPositionByLeft = parseInt(window.getComputedStyle(raceCar).getPropertyValue("left"));
-
-        if (raceCarPositionByLeft >= 54) {
-            raceCar.style.left = (raceCarPositionByLeft - 30) + "px"
-            console.log(raceCarPositionByLeft +"left key");
+        var raceCarLeft = parseInt(window.getComputedStyle(raceCar).getPropertyValue("left"))
+        if (raceCarLeft > 0) {
+            raceCar.style.left = (raceCarLeft - 130) + "px"
         }
+
     }
+})
 
-});
 
-/*game over function*/
+//Game over
 function gameOver() {
-    var blueCarTop = window.getComputedStyle(blueCar).getPropertyValue("top");
-    var blueCarLeft = window.getComputedStyle(blueCar).getPropertyValue("left");
-    var raceCarLeft = window.getComputedStyle(raceCar).getPropertyValue("left");
-    if ((raceCarLeft==414+"px") |(raceCarLeft==54+"px")) {
-        alert("game over");
+    var blueCarTop = parseInt(window.getComputedStyle(blueCar).getPropertyValue("top"))
+    var blueCarLeft = parseInt(window.getComputedStyle(blueCar).getPropertyValue("left"));
+    var raceCarLeft = parseInt(window.getComputedStyle(raceCar).getPropertyValue("left"));
+    if ((blueCarLeft === raceCarLeft) && (blueCarTop >= 670)) {
+        result.style.display ="block";
+        game.style.display = "none";
+        score.innerHTML =`score : ${count}`
+        count =0;
     }
 }
 
-setInterval(gameOver, 10);
+setInterval(gameOver, 5);

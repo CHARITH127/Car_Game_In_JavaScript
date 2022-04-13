@@ -5,14 +5,12 @@
 
 #game{
    height: 100vh;
-   width: 600px;
-   top: 0;
-   bottom: 0;
+   width: 390px;
+   margin: auto;
    left: 0;
    right: 0;
-   position: absolute;
-   margin: auto;
-   background: url("../images/road.jpg");
+   position: relative;
+   background:url("../images/road.jpg");
    background-size: contain;
    overflow: hidden;
 }
@@ -20,12 +18,12 @@
 #blueCar{
    height: 100px;
    width: 130px;
-   background: transparent;
+   background-color: transparent;
    position: relative;
-   top: 0;
-   left: 98px;
+   top: 0px;
+   left: 0px;
    text-align: center;
-   /*animation: move 2s linear infinite;*/
+   animation: move 1s linear  infinite  ;
 }
 
 #blueCar>img{
@@ -44,13 +42,41 @@
 #raceCar{
    height: 100px;
    width: 130px;
-   background: transparent;
+   background-color: transparent;
    position: relative;
-   top: 76vh;
-   left: 234px;
+   top: 675px;
+   left: 130px;
    text-align: center;
 }
 
 #raceCar>img{
    height: 100px;
+}
+
+#result{
+   height: 200px;
+   width: 400px;
+   background-color: cornflowerblue;
+   margin:  1rem auto;
+   border-radius: 20px;
+   font-size: 30px;
+   text-align: center;
+   color: white;
+   display:none ;
+}
+
+#score{
+   font-size: 2.2rem;
+   color: brown;
+}
+#btnRestart{
+   padding: 0.5rem 1rem;
+   border-radius: 20px;
+   border: none;
+   background-color: black;
+   color: cyan;
+   font-size: 25px;
+   margin-top: 10px;
+   cursor: pointer;
+   text-transform: uppercase;
 }
