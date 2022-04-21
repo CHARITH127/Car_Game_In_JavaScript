@@ -23,7 +23,7 @@
    top: 0px;
    left: 0px;
    text-align: center;
-   animation: move 1s linear  infinite  ;
+   animation: move 3000ms linear  infinite  ;
 }
 
 #blueCar>img{
@@ -57,7 +57,12 @@
    height: 200px;
    width: 400px;
    background-color: cornflowerblue;
-   margin:  1rem auto;
+   margin:auto;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
    border-radius: 20px;
    font-size: 30px;
    text-align: center;
